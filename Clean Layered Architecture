@@ -1,0 +1,124 @@
+SOLUTION
+│
+├── Api (F)
+│
+├── repo (F)
+│   │
+│   ├── cloud repo (F)
+│   │   │
+│   │   ├── projname. cloudrepo.abstraction (CL)
+│   │   │   └── Contracts (F)
+│   │   │       └── IAzureStorageTableRepo
+│   │   │
+│   │   └── projname. cloudrepo.implementation (CL)
+│   │       └── Infrastructure (F)
+│   │           └── AzureStorageTableRepo
+│   │
+│   ├── projname. repo.abstraction (CL)
+│   │   └── Contracts (F)
+│   │
+│   ├── projname. repo.context (CL)
+│   │   ├── Entities (F)  → (DB Tables)
+│   │   └── SQLDBCONTEXT.cs (DbContext with tables & models)
+│   │
+│   └── projname. repo.implementation (CL)
+│       └── Concrete (F)
+│
+│
+├── services (F)
+│   │
+│   ├── projname.services.abstraction (CL)
+│   │   ├── Contracts (F)
+│   │   └── Models (F)
+│   │
+│   └── projname. services.implementation (CL)
+│       └── Infrastructure (F)
+│
+│
+├── projname.api (CL)
+│   ├── ActionFilers (F)
+│   ├── Handlers (F)
+│   ├── Controllers (F)
+│   ├── Middlewares (F)
+│   ├── appsettings.json
+│   ├── yml test file
+│   └── program.cs
+│
+│
+├── projname.common (CL)
+│   ├── Enums (F)
+│   ├── Exceptions (F)
+│   ├── Extensions (F)
+│   └── LogModel (F)
+│
+│
+└── projname.dependencies (CL)
+    └── serviceCollectionExtension (Inject all dependencies here)
+
+
+MICROSERVICE (F)
+│
+├── repo (F)
+│   │
+│   ├── cloudRepo (F)
+│   │   │
+│   │   ├── projname. cloudrepo.abstr (CL)
+│   │   │   ├── Contracts (F)
+│   │   │   └── Entities (F) (if needed)
+│   │   │
+│   │   ├── projname. cloudrepo.Context (CL)
+│   │   │   └── db (F)
+│   │   │
+│   │   └── projname. cloudrepo.implmention (CL)
+│   │       └── infrastructure (F)
+│   │
+│
+├── services (F)
+│   │
+│   ├── projname. services.abstraction (CL)
+│   │   ├── contracts (F)
+│   │   └── models (F)
+│   │
+│   ├── projname. services.implementation (CL)
+│   │   └── infrastructure (F)
+│   │
+│   ├── projname. services.Common (CL)
+│   │   ├── enums (F)
+│   │   ├── exceptions (F)
+│   │   ├── extensions (F)
+│   │   └── helper (F)
+│   │
+│   └── Projname. service.FunctionApp (Azure) (CL)
+│       ├── Functions (F)
+│       ├── .gitignore
+│       ├── host.json
+│       └── program.cs
+│
+│
+└── solution items (F)
+    └── azure pipelines microservice test yml
+
+Instead of:
+
+- `repo.context` → `infrastructure.persistence.`
+- `repo.implementation` → `infrastructure.persistence.repositories.`
+
+- **(F)** → Just folders for organizing
+- **(CL)** → Actual projects (compiled, referenced)
+
+👉 `cloudrepo.Context` is good, but better naming:
+cloudrepo. persistence → (industry standard)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
